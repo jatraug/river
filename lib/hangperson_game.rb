@@ -8,7 +8,11 @@ class HangpersonGame
   # end
   
   def initialize(word)
+    if (word == '')
+      @word = get_random_word
+    else
     @word = word
+    end
     @wordArr= word.split(//)
 
     @guesses = ''
