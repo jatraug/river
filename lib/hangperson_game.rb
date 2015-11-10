@@ -10,6 +10,51 @@ class HangpersonGame
   
   def initialize(word)
     @word = word
+    @wordArr= word.split(//)
+
+    @guesses = ''
+    @wrong_guesses = ''
+  end
+
+  def word
+    @word
+  end
+
+  def wrong_guesses
+    @wrong_guesses
+    end
+
+  def guesses
+    puts"guesses: ->#{@guesses}<-"
+    return @guesses
+  end
+
+  def putInGuesses?(gArr, n)
+    garr = gArr.split(//)
+    garr.each{|d| 
+      return false if(n==d)
+    }
+    true
+    end
+
+  def guess(g)
+    puts "&&& guess: #{g}"
+    retval = false
+    @wordArr.each {|w|  
+      puts "^^^^ wordArr[] = #{w}"
+      if(g.downcase==w.downcase)
+        retval = true
+       puts "***** #{g} == #{w} *****"
+        ## put in guesses if it's new
+        if  putInGuesses?(@guesses, g)
+          @guesses +=g 
+        end
+      end
+    }
+    if(false == retval)
+      @wrong_guesses +=g
+    end
+    return retval
   end
 
   def self.get_random_word
