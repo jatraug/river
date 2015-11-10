@@ -21,10 +21,13 @@ class HangpersonApp < Sinatra::Base
     redirect '/new'
   end
   
-  get '/new' do
-    erb :new
+ get '/new' do
+    redirect '/create'
+#    erb :new
   end
   
+
+
   post '/create' do
     # NOTE: don't change next line - it's needed by autograder!
     word = params[:word] || HangpersonGame.get_random_word
@@ -50,7 +53,15 @@ class HangpersonApp < Sinatra::Base
   # wrong_guesses and word_with_guesses from @game.
   get '/show' do
     ### YOUR CODE HERE ###
-    erb :show # You may change/remove this line
+    wol = HangPersonGame.check_win_or_lose
+    if (wol == :win)
+      redirect '/win'
+    elsif wol == :lose
+      redirect '/lose'
+    else
+      redirect '/show'
+    end
+#    erb :show # You may change/remove this line
   end
   
   get '/win' do
