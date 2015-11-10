@@ -24,7 +24,7 @@ class HangpersonGame
     end
 
   def guesses
-    puts"guesses: ->#{@guesses}<-"
+#    puts"guesses: ->#{@guesses}<-"
     return @guesses
   end
 
@@ -47,13 +47,13 @@ class HangpersonGame
     return false if(@guesses.include?(g.downcase))
     return false if(@wrong_guesses.include?(g.downcase))
 
-    puts "&&& guess: #{g}"
+#    puts "&&& guess: #{g}"
     retval = false
     @wordArr.each {|w|  
-      puts "^^^^ wordArr[] = #{w}"
+#      puts "^^^^ wordArr[] = #{w}"
       if(g.downcase==w.downcase)
         retval = true
-       puts "***** #{g} == #{w} *****"
+#       puts "***** #{g} == #{w} *****"
         ## put in guesses if it's new
         if  putInGuesses?(@guesses, g)
           @guesses +=g.downcase
