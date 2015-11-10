@@ -4,7 +4,6 @@ class HangpersonGame
   # to make the tests in spec/hangperson_game_spec.rb pass.
 
   # Get a word from remote "random word" service
-
   # def initialize()
   # end
   
@@ -30,14 +29,24 @@ class HangpersonGame
   end
 
   def putInGuesses?(gArr, n)
-    garr = gArr.split(//)
-    garr.each{|d| 
-      return false if(n==d)
-    }
-    true
+    return(!gArr.include?(n))
+
+    # garr = gArr.split(//)
+    # garr.each{|d| 
+    #   return false if(n==d)
+    # }
+    # true
     end
 
   def guess(g)
+    throw (:ArgumentError ) if(g =~ /[^a-z,A-Z]/)
+    throw :ArgumentError if(g == '')
+    throw :ArgumentError if(g == nil)
+
+
+    return false if(@guesses.include?(g.downcase))
+    return false if(@wrong_guesses.include?(g.downcase))
+
     puts "&&& guess: #{g}"
     retval = false
     @wordArr.each {|w|  
@@ -47,15 +56,44 @@ class HangpersonGame
        puts "***** #{g} == #{w} *****"
         ## put in guesses if it's new
         if  putInGuesses?(@guesses, g)
-          @guesses +=g 
+          @guesses +=g.downcase
         end
       end
     }
     if(false == retval)
-      @wrong_guesses +=g
+      if  putInGuesses?(@wrong_guesses, g)
+        @wrong_guesses +=g
+      end
     end
     return retval
   end
+
+  def word_with_guesses
+    word = ''
+    @word.each_char {|c|
+      if @guesses.include?(c)
+        word += c
+      else
+        word += '-'
+      end
+    }
+    word
+  end
+
+  def check_win_or_lose
+    return :lose if @wrong_guesses.size >= 7
+    allLetters = true
+    @word.each_char {|c|
+      if(false == @guesses.include?(c))
+        allLetters = false
+      end
+    }         
+    if(true == allLetters)
+      return :win
+    else
+      return :play
+    end
+  end    
 
   def self.get_random_word
     require 'uri'
