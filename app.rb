@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/hangperson_game.rb'
 
+catch (:ArgumentEror) do
+
 class HangpersonApp < Sinatra::Base
 
   enable :sessions
@@ -21,14 +23,18 @@ class HangpersonApp < Sinatra::Base
     redirect '/new'
   end
   
- get '/new' do
+  post '/new' do
+    redirect '/new'
+  end
+
+  get '/new' do
     redirect '/create'
 #    erb :new
   end
   
 
 
-  post '/create' do
+  get '/create' do
     # NOTE: don't change next line - it's needed by autograder!
     word = params[:word] || HangpersonGame.get_random_word
     # NOTE: don't change previous line - it's needed by autograder!
@@ -43,7 +49,25 @@ class HangpersonApp < Sinatra::Base
   post '/guess' do
     letter = params[:guess].to_s[0]
     ### YOUR CODE HERE ###
-    redirect '/show'
+    if (letter == '')
+        redirect '/show'
+      end
+    if (letter == nil)
+        redirect '/show'
+      end
+
+    if false == @game.guess(letter)
+      flash[:message] = "Invalid guess"
+    end
+    wol = @game.check_win_or_lose
+     if (wol == :win)
+       redirect '/win'
+     elsif wol == :lose
+       redirect '/lose'
+     else
+       redirect '/show'
+     end
+    
   end
   
   # Everytime a guess is made, we should eventually end up at this route.
@@ -51,27 +75,48 @@ class HangpersonApp < Sinatra::Base
   # won, lost, or neither, and take the appropriate action.
   # Notice that the show.erb template expects to use the instance variables
   # wrong_guesses and word_with_guesses from @game.
+  post '/show' do
+    redirect '/show'
+    end
+
   get '/show' do
     ### YOUR CODE HERE ###
-    wol = HangPersonGame.check_win_or_lose
-    if (wol == :win)
-      redirect '/win'
-    elsif wol == :lose
-      redirect '/lose'
-    else
-      redirect '/show'
-    end
+    erb :show
+
+    # wol = @game.check_win_or_lose
+    # if (wol == :win)
+    #   redirect '/win'
+    # elsif wol == :lose
+    #   redirect '/lose'
+    # else
+    #   redirect '/show'
+    # end
 #    erb :show # You may change/remove this line
   end
   
+post '/win' do
+    redirect '/win'
+end
+
   get '/win' do
     ### YOUR CODE HERE ###
-    erb :win # You may change/remove this line
+    erb :win
+#   redirect '/new'
+#    erb :win # You may change/remove this line
   end
   
+  post '/lose' do
+    erb :new
+#    redirect '/lose'
+  end
+
   get '/lose' do
     ### YOUR CODE HERE ###
-    erb :lose # You may change/remove this line
+    erb :lose
+    #redirect '/new'
+ #   erb :lose # You may change/remove this line
   end
   
 end
+
+end #catch

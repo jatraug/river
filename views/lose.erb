@@ -5,6 +5,13 @@
    <span class="lose"><%= @game.word %></span>
 </p>
 
-<%= erb :new %>
+<form method="post">
+  <input type="submit" value="New Game"/>
+
+  <%=    @game= HangpersonApp.new('')   %>,
+
+</form>
+
+
 
 

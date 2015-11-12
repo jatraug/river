@@ -8,11 +8,8 @@ class HangpersonGame
   # end
   
   def initialize(word)
-    if (word == '')
-      @word = get_random_word
-    else
     @word = word
-    end
+
     @wordArr= word.split(//)
 
     @guesses = ''
@@ -86,6 +83,7 @@ class HangpersonGame
 
   def check_win_or_lose
     return :lose if @wrong_guesses.size >= 7
+    return :play if @guesess == ''
     allLetters = true
     @word.each_char {|c|
       if(false == @guesses.include?(c))
