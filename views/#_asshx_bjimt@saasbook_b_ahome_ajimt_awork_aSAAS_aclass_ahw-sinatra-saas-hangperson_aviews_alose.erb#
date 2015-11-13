@@ -8,7 +8,7 @@
 <form method="post" value=/create">
   <input type="submit" value="New Game " />
 
-  <%=    @game= HangpersonApp.new('')   %>,
+  <%=    @game= HangpersonApp.new('') bh  %>,
 
 </form>
 

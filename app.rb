@@ -95,7 +95,8 @@ class HangpersonApp < Sinatra::Base
   end
   
 post '/win' do
-    redirect '/win'
+   redirect '/create'
+    #redirect '/win'
 end
 
   get '/win' do
@@ -106,8 +107,8 @@ end
   end
   
   post '/lose' do
-    erb :new
-#    redirect '/lose'
+#    erb :new
+    redirect '/create'
   end
 
   get '/lose' do
