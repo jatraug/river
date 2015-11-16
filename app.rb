@@ -45,8 +45,13 @@ class HangpersonApp < Sinatra::Base
   
   # Use existing methods in HangpersonGame to process a guess.
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
-  # If a guess is invalid, set flash[:message] to "Invalid guess."
+  # If a guesse is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
+    redirect '/guess'
+  end
+
+get '/guess' do
+
     letter = params[:guess].to_s[0]
     ### YOUR CODE HERE ###
     if (letter == '')
@@ -66,7 +71,7 @@ class HangpersonApp < Sinatra::Base
        redirect '/lose'
      else
        redirect '/show'
-     end
+     endnnn
     
   end
   
@@ -74,7 +79,7 @@ class HangpersonApp < Sinatra::Base
   # Use existing methods in HangpersonGame to check if player has
   # won, lost, or neither, and take the appropriate action.
   # Notice that the show.erb template expects to use the instance variables
-  # wrong_guesses and word_with_guesses from @game.
+
   post '/show' do
     redirect '/show'
     end
