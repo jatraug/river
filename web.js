@@ -1,6 +1,6 @@
+var river = require('./river');
 var express = require('express');
 
-var river = require('./river');
 
 // var app = express.createServer(express.logger());
 var app = express();
