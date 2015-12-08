@@ -18,7 +18,7 @@ var handleData = function(dataArr) {
     var data = "";
 
     dataArr.forEach( function (element, index, array) {
-        data += ("<p>TimeDate: " + element.date +  "  -  " + "Feet: " + element.height + "\r\n");
+        data += ("<li>TimeDate: " + element.date +  "  -  " + "Feet: " + element.height + "</li>\r\n");
 
         console.log ("TimeDate: " + element.date +  "  -  " + "Feet: " + element.height);
     });
