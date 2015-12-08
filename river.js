@@ -27,6 +27,15 @@ var handleData = function(dataArr) {
 };
 
 
+var parseDateAndTime = function(dateTime){
+//  2015-12-08T02:30:00.000-08:00
+// put date and time in separate entities 
+    var resp = "";
+   var myre = /(\d\d\d\d-\d\d-\d\d)T(\d+:\d\d:\d\d)/;
+    resp = dateTime.replace(myre, "$1  $2");
+
+    return resp;
+}
 
 
 // for period above: P2D past 2 days. PT2H past 2 hours
@@ -58,7 +67,8 @@ callback = function(response) {
       // Put needed river data in array:
       riverData.value.timeSeries[0].values[0].value.forEach (function (element, index, array) {
 //          console.log ( "Date & Time:  " + element.dateTime + "  Height: " + element.value + " feet");
-          riverDataArr.push ({date: element.dateTime, height: element.value});
+          var dTime = parseDateAndTime(element.dateTime);
+          riverDataArr.push ({date: dTime, height: element.value});
       });
       console.log("Call handleData");
       handleData (riverDataArr);
