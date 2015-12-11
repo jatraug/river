@@ -9,12 +9,11 @@
   "author": "Jim Traugott",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.12.3",
-    "proxying-agent": "^0.1.7"
+    "express": "^4.12.3"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/rocky-hollows-4182.git"
+    "url": "https://git.heroku.com/protected-dawn-6882.git"
   }
 }
