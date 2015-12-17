@@ -10,26 +10,45 @@
          Your browser does not support Canvas
     </canvas>
 
-    <!-- <form action="http://localhost:8080/riverData" method="get"> -->
-    <form action="/riverData" method="get"
+
+
 >
 
 <!-- <script src="river.js"></script> -->
-
+<script src=rdata.js></script>
 <script>
 
-window.onload = function() {
-// BOGUS   getRiverData();
+    var elem = document.getElementById('myCanvas');
 
-};
-var myFunction = function() {
-   console.log ("Doin' it");
-  GET /riverData 
+// Check the element is in the DOM and the browser supports canvas
+if(elem.getContext) {
+// Initaliase a 2-dimensional drawing context
+var context = elem.getContext('2d');
+//Canvas commands go here
 }
+
+
+
+var lineWidth   = 2;
+
+context.beginPath();
+context.strokeStyle = '#f00';
+context.lineWidth = lineWidth;
+var amount = 20;
+context.moveTo(100,200);
+rdata.forEach( function (element, index, array) {
+    context.lineTo(100 + amount, 200 + element.height);
+    amount += 20;
+});
+    context.stroke();
+
+
 </script>
+
+
 <!-- Insert Here -->
 <!-- <script src="./jquery.js"></script> -->
- <button onclick=myfunction()>Get Snohomish River Data</button> 
+
 
 </body></html>
 

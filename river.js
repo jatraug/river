@@ -20,7 +20,7 @@ var handleData = function(dataArr) {
     dataArr.forEach( function (element, index, array) {
         data += ("<li>TimeDate: " + element.date +  "  -  " + "Feet: " + element.height + "</li>\r\n");
 
-        console.log ("TimeDate: " + element.date +  "  -  " + "Feet: " + element.height);
+//        console.log ("TimeDate: " + element.date +  "  -  " + "Feet: " + element.height);
     });
     var buf= new Buffer(data, 'utf8');
     ourHtresp.get().send(data); //buf.toString());
@@ -35,7 +35,7 @@ var parseDateAndTime = function(dateTime){
     resp = dateTime.replace(myre, "$1  $2");
 
     return resp;
-}
+};
 
 
 // for period above: P2D past 2 days. PT2H past 2 hours

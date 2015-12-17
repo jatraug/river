@@ -2,7 +2,7 @@ var river = require('./river');
 var express = require('express');
 
 
-// var app = express.createServer(express.logger());
+
 var app = express();
 
 app.get('/', function(request, response) {
@@ -16,13 +16,13 @@ app.get('/', function(request, response) {
 });
 
 app.get('/riverData', function(request, response) {
-    console.log('riverData');
-    var rData = river.getRiverData(response);
+    console.log("Request: " + "HaHHa" );
+   // var rData = river.getRiverData(response);
     // above here works!
      var fs = require('fs');	
-     //var ind = fs.readFileSync('returngraph.html');
-     //var buf= new Buffer(ind, 'utf8');
-     //response.send(buf.toString());
+     var ind = fs.readFileSync('graph.html');
+     var buf= new Buffer(ind, 'utf8');
+     response.send(buf.toString());
 
 });
 
