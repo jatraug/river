@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
 
 app.get('/riverData', function(request, response) {
     console.log("Request: " + "HaHHa" );
-   // var rData = river.getRiverData(response);
+    var rData = river.getRiverData(response);
     // above here works!
      var fs = require('fs');	
      var ind = fs.readFileSync('graph.html');

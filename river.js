@@ -9,21 +9,31 @@ var http = require('http');
 //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
 var options = {
   host: 'waterservices.usgs.gov',
-  path: '/nwis/iv/?sites=12155500&period=P3D&format=json'
+  path: '/nwis/iv/?sites=12155500&period=P1D&format=json'
 };
 
 
 var handleData = function(dataArr) {
     console.log ("handleData");
+    var fs = require('fs');	
+    var Const = require('constants');
+    var dataFile = './rdata.js';
     var data = "";
-
+    if(fs.existsSync(dataFile)) {
+        fs.unlinkSync(dataFile);
+    }
+    var fd = fs.openSync(dataFile, 102);
+    //console.log("**** fd = " + fd);
+    fs.writeSync(fd, "var rdata = [");
     dataArr.forEach( function (element, index, array) {
         data += ("<li>TimeDate: " + element.date +  "  -  " + "Feet: " + element.height + "</li>\r\n");
-
+        fs.writeSync(fd,"{time: \"" + element.date + "\", height: " + element.height + " },");
 //        console.log ("TimeDate: " + element.date +  "  -  " + "Feet: " + element.height);
     });
-    var buf= new Buffer(data, 'utf8');
-    ourHtresp.get().send(data); //buf.toString());
+    fs.writeSync(fd, "\n];\n");
+  //  var buf= new Buffer(data, 'utf8');
+ //   ourHtresp.get().send(data); //buf.toString());
+    fs.closeSync(fd);
 };
 
 

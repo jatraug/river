@@ -6,13 +6,12 @@
   </head>
 
   <body>
-    <canvas id="myCanvas" width="800" height="500">
+    <canvas id="myCanvas" width="1000" height="500">
          Your browser does not support Canvas
     </canvas>
 
 
 
->
 
 <!-- <script src="river.js"></script> -->
 <script src=rdata.js></script>
@@ -34,11 +33,11 @@ var lineWidth   = 2;
 context.beginPath();
 context.strokeStyle = '#f00';
 context.lineWidth = lineWidth;
-var amount = 20;
+var amount = 9;
 context.moveTo(100,200);
 rdata.forEach( function (element, index, array) {
-    context.lineTo(100 + amount, 200 + element.height);
-    amount += 20;
+    context.lineTo(100 + amount, 200 -( Math.ceil(9 * element.height)));
+    amount += 9;
 });
     context.stroke();
 
