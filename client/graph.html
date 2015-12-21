@@ -13,8 +13,8 @@
 
 
 
-<!-- <script src="river.js"></script> -->
-<script src=rdata.js></script>
+
+<script src="data/rdata.js"></script>
 <script>
 
     var elem = document.getElementById('myCanvas');
@@ -36,7 +36,7 @@ context.lineWidth = lineWidth;
 var amount = 9;
 context.moveTo(100,200);
 rdata.forEach( function (element, index, array) {
-    context.lineTo(100 + amount, 200 -( Math.ceil(9 * element.height)));
+    context.lineTo(100 + amount, 500 -( Math.ceil(25 * element.height)));
     amount += 9;
 });
     context.stroke();

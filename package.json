@@ -1,19 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "Serve river data",
-  "main": "river.js",
+  "name": "River",
+  "version": "0.0.1",
+  "description": "Graph Snohomish river height",
+  "main": "web.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jim Traugott",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.12.3"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://git.heroku.com/protected-dawn-6882.git"
+    "express": "^4.13.3"
   }
 }

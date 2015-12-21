@@ -17,7 +17,7 @@ var handleData = function(dataArr) {
     console.log ("handleData");
     var fs = require('fs');	
     var Const = require('constants');
-    var dataFile = './rdata.js';
+    var dataFile = '../data/rdata.js';
     var data = "";
     if(fs.existsSync(dataFile)) {
         fs.unlinkSync(dataFile);
