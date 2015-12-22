@@ -26,7 +26,6 @@ app.get('/riverData', function(request, response) {
 });
 
 app.get('/data/rdata.js', function(request, response) {
-    console.log("Request: " + "HaHHa" );
     var rData = river.getRiverData(response);
 
      var fs = require('fs');	
