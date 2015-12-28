@@ -33,7 +33,11 @@ var handleData = function(dataArr) {
     fs.writeSync(fd, "\n];\n");
   //  var buf= new Buffer(data, 'utf8');
  //   ourHtresp.get().send(data); //buf.toString());
-    fs.closeSync(fd);
+    var waiter = false;
+    fs.close(fd, function() {
+    waiter = true;});
+    while(false === waiter) {
+        }
 };
 
 

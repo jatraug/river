@@ -28,13 +28,14 @@ var context = elem.getContext('2d');
 
 
 
-var lineWidth   = 2;
+var lineWidth   = 1;
 
 context.beginPath();
 context.strokeStyle = '#f00';
 context.lineWidth = lineWidth;
 var amount = 9;
-context.moveTo(100,200);
+var yinit = 500 - Math.ceil( 25 * rdata[0].height);
+context.moveTo(100,yinit);
 rdata.forEach( function (element, index, array) {
     context.lineTo(100 + amount, 500 -( Math.ceil(25 * element.height)));
     amount += 9;

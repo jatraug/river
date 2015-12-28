@@ -27,11 +27,15 @@ app.get('/riverData', function(request, response) {
 
 app.get('/data/rdata.js', function(request, response) {
     var rData = river.getRiverData(response);
+  //  response.sendFile("../data/rdata.js", {
+  //  root: __dirname });
+///home/jimt/work/heroku/riverHeroku
+      var fs = require('fs');	
 
-     var fs = require('fs');	
-     var ind = fs.readFileSync('../data/rdata.js');
-     var buf= new Buffer(ind, 'utf8');
-     response.send(buf.toString());
+
+      var ind = fs.readFileSync('../data/rdata.js');
+      var buf= new Buffer(ind, 'utf8');
+      response.send(buf.toString());
 
 
 });
