@@ -34,9 +34,11 @@ app.get('/data/rdata.js', function(request, response) {
 
 
       var ind = fs.readFileSync('../data/rdata.js');
+    console.log("A");
       var buf= new Buffer(ind, 'utf8');
+    console.log("B");
       response.send(buf.toString());
-
+    console.log("C");
 
 });
 
