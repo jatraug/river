@@ -39,7 +39,7 @@ app.get('/data/rdata.js', function(request, response) {
     console.log("B");
       response.send(buf.toString());
     console.log("C");
-    res.end();
+    response.end();
 
 });
 
