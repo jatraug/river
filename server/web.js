@@ -12,6 +12,7 @@ app.get('/', function(request, response) {
     var ind = fs.readFileSync('../client/index.html');
     var buf= new Buffer(ind, 'utf8');
     response.send(buf.toString());
+    response.end();
     //  response.send('Hello World Two!');
 });
 
@@ -23,6 +24,7 @@ app.get('/riverData', function(request, response) {
      var ind = fs.readFileSync('../client/graph.html');
      var buf= new Buffer(ind, 'utf8');
      response.send(buf.toString());
+    response.end();
 });
 
 app.get('/data/rdata.js', function(request, response) {
@@ -43,6 +45,11 @@ app.get('/data/rdata.js', function(request, response) {
 
 });
 
+app.get('/client/graph.js', function(request, response) {
+    console.log("D");
+    response.sendFile("/client/graph.js", { root: __dirname });
+    response.end(); 
+});
 
 app.use(express.static(__dirname));
 
