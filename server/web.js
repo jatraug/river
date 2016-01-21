@@ -9,7 +9,7 @@ app.get('/', function(request, response) {
     console.log(request);
     console.log("====================");
     var fs = require('fs');	
-    var ind = fs.readFileSync('../client/index.html');
+    var ind = fs.readFileSync('client/index.html');
     var buf= new Buffer(ind, 'utf8');
     response.send(buf.toString());
     response.end();
@@ -21,7 +21,7 @@ app.get('/riverData', function(request, response) {
     var rData = river.getRiverData(response);
     // above here works!
      var fs = require('fs');	
-     var ind = fs.readFileSync('../client/graph.html');
+     var ind = fs.readFileSync('client/graph.html');
      var buf= new Buffer(ind, 'utf8');
      response.send(buf.toString());
     response.end();
@@ -35,7 +35,7 @@ app.get('/data/rdata.js', function(request, response) {
       var fs = require('fs');	
 
 
-      var ind = fs.readFileSync('../data/rdata.js');
+      var ind = fs.readFileSync('data/rdata.js');
     console.log("A");
       var buf= new Buffer(ind, 'utf8');
     console.log("B");
@@ -50,7 +50,7 @@ app.get('/client/graph.js', function(request, response) {
  var fs = require('fs');	
 
 
-      var ind = fs.readFileSync('../client/graph.js');
+      var ind = fs.readFileSync('client/graph.js');
     console.log("E");
       var buf= new Buffer(ind, 'utf8');
     console.log("F");

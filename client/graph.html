@@ -32,13 +32,13 @@ var context = elem.getContext('2d');
 var lineWidth   = 1;
 
 context.beginPath();
-context.strokeStyle = '#f00';
+<!-- context.strokeStyle = '#f00'; -->
 context.lineWidth = lineWidth;
 var config = {height: 500, width: 1000};
 var graph = new Graph(config);
 graph.setMinMax(rdata);
 //do legend:
-context.strokeStyle = '#000000';
+context.strokeStyle = "#8a9194";
     var elem = graph.min();
  while (elem < graph.max()) { 
     context.moveTo(25, 500  - (elem * 25)); 
@@ -47,7 +47,8 @@ context.strokeStyle = '#000000';
     elem +=1; 
  } 
     context.stroke();
-context.strokeStyle = '#f00';
+               context.beginPath();
+               context.strokeStyle = '#1D8DB3';
 var amount = 9;
 var yinit = 500 - Math.ceil( 25 * rdata[0].height);
 context.moveTo(100+ amount,yinit);
