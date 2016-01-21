@@ -62,11 +62,11 @@ Graph.prototype.setMinMax =  function(numarr) {
 }
 
 Graph.prototype.max = function() {
-    return this.config.max;
+    return Math.ceil(this.config.max);
 }
 
 Graph.prototype.min = function() {
-    return this.config.min;
+    return  Math.floor(this.config.min);
 }
 
 //module.exports.Graph = Graph;

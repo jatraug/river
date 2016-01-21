@@ -47,8 +47,18 @@ app.get('/data/rdata.js', function(request, response) {
 
 app.get('/client/graph.js', function(request, response) {
     console.log("D");
-    response.sendFile("/client/graph.js", { root: __dirname });
-    response.end(); 
+ var fs = require('fs');	
+
+
+      var ind = fs.readFileSync('../client/graph.js');
+    console.log("E");
+      var buf= new Buffer(ind, 'utf8');
+    console.log("F");
+      response.send(buf.toString());
+    console.log("G");
+    response.end();
+//    response.sendFile("/client/graph.js", { root: __dirname });
+//    response.end(); 
 });
 
 app.use(express.static(__dirname));
