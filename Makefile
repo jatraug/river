@@ -5,7 +5,7 @@ default:
 	echo "Targets: run lint"
 
 run :
-	cd server && node web.js
+	node server/web.js
 
 lint:
 	jshint $(JSFILES)
