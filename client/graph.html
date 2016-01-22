@@ -40,7 +40,7 @@ graph.setMinMax(rdata);
 //do legend:
 context.strokeStyle = "#8a9194";
     var elem = graph.min();
- while (elem < graph.max()) { 
+ while (elem <= graph.max()) { 
     context.moveTo(25, 500  - (elem * 25)); 
      context.lineTo(1000, 500 - (elem * 25)); 
      context.fillText(elem, 10, 500 - (elem * 25));
