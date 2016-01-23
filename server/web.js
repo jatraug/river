@@ -61,6 +61,22 @@ app.get('/client/graph.js', function(request, response) {
 //    response.end(); 
 });
 
+app.get('/client/drawgraph.js', function(request, response) {
+    console.log("D");
+ var fs = require('fs');	
+
+
+      var ind = fs.readFileSync('client/drawgraph.js');
+    console.log("E");
+      var buf= new Buffer(ind, 'utf8');
+    console.log("F");
+      response.send(buf.toString());
+    console.log("G");
+    response.end();
+//    response.sendFile("/client/graph.js", { root: __dirname });
+//    response.end(); 
+});
+
 app.use(express.static(__dirname));
 
 

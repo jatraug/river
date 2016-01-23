@@ -5,7 +5,8 @@
     <title>Snohomish River Data</title>
   </head>
 
-  <body>
+  <body onload = "drawGraph()">
+
     <canvas id="myCanvas" width="1000" height="500">
          Your browser does not support Canvas
     </canvas>
@@ -16,6 +17,7 @@
 
 <script src="data/rdata.js"></script>
 <script src="client/graph.js"></script>
+<script src="client/drawgraph.js"></script>
 <script>
 
     var elem = document.getElementById('myCanvas');
@@ -27,37 +29,6 @@ var context = elem.getContext('2d');
 //Canvas commands go here
 }
 
-
-
-var lineWidth   = 1;
-
-context.beginPath();
-<!-- context.strokeStyle = '#f00'; -->
-context.lineWidth = lineWidth;
-var config = {height: 500, width: 1000};
-var graph = new Graph(config);
-graph.setMinMax(rdata);
-//do legend:
-context.strokeStyle = "#8a9194";
-    var elem = graph.min();
- while (elem <= graph.max()) { 
-    context.moveTo(25, 500  - (elem * 25)); 
-     context.lineTo(1000, 500 - (elem * 25)); 
-     context.fillText(elem, 10, 500 - (elem * 25));
-    elem +=1; 
- } 
-    context.stroke();
-               context.beginPath();
-               context.strokeStyle = '#1D8DB3';
-var amount = 9;
-var yinit = 500 - Math.ceil( 25 * rdata[0].height);
-context.moveTo(100+ amount,yinit);
-    amount +=9;
-rdata.forEach( function (element, index, array) {
-    context.lineTo(100 + amount, 500 -( Math.ceil(25 * element.height)));
-    amount += 9;
-});
-    context.stroke();
 
 
 </script>

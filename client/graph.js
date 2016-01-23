@@ -2,8 +2,8 @@
 
 var Graph = function ( config) {
     this.config = config;
-//    this.width = width;
-//    this.height = height;
+    this.config.width = config.width;
+    this.config.height = config.height;
     this.config.max = 0;
     this.config.min = 0;
     this.config.Xscale = 0;
@@ -22,6 +22,8 @@ Graph.prototype.Xscale = function() {
 
 
 Graph.prototype.Yscale = function() {
+    console.log("returning Yscale = " + this.config.Yscale);
+    console.log("Height " + this.config.height + " Max " + this.config.max + " Min " + this.config.min);
     return this.config.Yscale;
 };
 
@@ -58,7 +60,7 @@ Graph.prototype.setMinMax =  function(numarr) {
     this.config = config;
     this.config.elements = elements;
     this.config.Xscale = Math.floor(this.config.width/this.config.elements);
-    this.config.Yscale = Math.floor(this.config.height/(this.config.max - this.config.min));
+    this.config.Yscale = Math.floor(this.config.height/((this.config.max - this.config.min)* 4));
 };
 
 Graph.prototype.max = function() {
