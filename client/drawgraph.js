@@ -3,7 +3,6 @@ var drawGraph = function() {
     var lineWidth   = 1;
 
     context.beginPath();
-        <!-- context.strokeStyle = '#f00'; -->
         context.lineWidth = lineWidth;
     var config = {height: 500, width: 1000};
     var graph = new Graph(config);
@@ -12,20 +11,22 @@ var drawGraph = function() {
     context.strokeStyle = "#8a9194";
     var elem = graph.min();
     while (elem <= graph.max()) { 
-        context.moveTo(25, 500  - (elem * graph.Yscale())); 
-        context.lineTo(1000, 500 - (elem * graph.Yscale() )); 
-        context.fillText(elem, 10, 500 - (elem * graph.Yscale()));
+        var Selem = elem - 10;
+        context.moveTo(25, 500  - (Selem * graph.Yscale())); 
+        context.lineTo(1000, 500 - (Selem * graph.Yscale() )); 
+        context.fillText(elem, 10, 500 - (Selem * graph.Yscale()));
         elem +=1; 
     } 
     context.stroke();
     context.beginPath();
+    var fudge = 10;
     context.strokeStyle = '#1D8DB3';
     var amount = graph.Xscale();
-    var yinit = 500 - Math.ceil( graph.Yscale() * rdata[0].height);
+    var yinit = 500 - Math.ceil( graph.Yscale() * (rdata[0].height- fudge));
     context.moveTo(100+ amount,yinit);
-    amount +=9;
+//    amount +=9;
     rdata.forEach( function (element, index, array) {
-        context.lineTo(100 + amount, 500 -( Math.ceil(graph.Yscale() * element.height)));
+        context.lineTo(100 + amount, 500 -( Math.ceil(graph.Yscale() * (element.height- fudge))));
         amount +=  graph.Xscale();
     });
     context.stroke();

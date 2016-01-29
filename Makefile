@@ -9,6 +9,8 @@ run :
 
 lint:
 	jshint $(JSFILES)
+local:
+	heroku local web
 
 ## node install -g eslint
 eslint :
