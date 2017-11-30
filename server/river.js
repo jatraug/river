@@ -4,12 +4,15 @@
 
 //  riverData = http://waterservices.usgs.gov/nwis/iv/?sites=12155500\&period=P7D\&format=json
 
-var http = require('http');
+var http = require('https');
 
 //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+
+var river = {"snohomish" : '12155500', 'skagit' : '12194000'};
 var options = {
-  host: 'waterservices.usgs.gov',
-  path: '/nwis/iv/?sites=12155500&period=P1D&format=json'
+    host: 'waterservices.usgs.gov',
+    path: '/nwis/iv/?sites=' + river.snohomish + '&period=P1D&format=json'
+    //    path: '/nwis/iv/?sites=12194000&period=P1D&format=json'
 };
 
 
@@ -22,7 +25,7 @@ var handleData = function(dataArr) {
     if(fs.existsSync(dataFile)) {
         fs.unlinkSync(dataFile);
     }
-    var fd = fs.openSync(dataFile, 102);
+    var fd = fs.openSync(dataFile,'w');
     //console.log("**** fd = " + fd);
     fs.writeSync(fd, "var rdata = [");
     dataArr.forEach( function (element, index, array) {
@@ -72,12 +75,16 @@ callback = function(response) {
     str += chunk;
   });
 
+
+    // need: "variableDescription":"Gage height, feet
   //the whole response has been recieved, so we just print it out here
   response.on('end', function () {
       riverData = JSON.parse(str);
       // Put needed river data in array:
-      riverData.value.timeSeries[0].values[0].value.forEach (function (element, index, array) {
-//          console.log ( "Date & Time:  " + element.dateTime + "  Height: " + element.value + " feet");
+      var ind = determineWhichTimeseries(riverData.value.timeSeries);
+      console.log("ind = " + ind);
+      riverData.value.timeSeries[ind].values[0].value.forEach (function (element, index, array) {
+          console.log ( "Date & Time:  " + element.dateTime + "  Height: " + element.value + " feet");
           var dTime = parseDateAndTime(element.dateTime);
           riverDataArr.push ({date: dTime, height: element.value});
       });
@@ -95,7 +102,17 @@ var getRiverData = function(htresponse) {
     http.request(options, callback).end();
 };
 
-
+// Determine which timeseies
+var determineWhichTimeseries = function(arr){
+    var ind = undefined;
+    arr.forEach ( function (element, index, array) {
+        console.log("varDesc: " + element.variable.variableDescription);
+        if(element.variable.variableDescription === "Gage height, feet") {
+            ind = index;
+        }
+    });
+    return ind;
+};
 //getRiverData();
 
 module.exports.getRiverData = getRiverData;
