@@ -41,6 +41,7 @@ Graph.prototype.setMinMax =  function(numarr) {
     numarr.forEach(function (data, index, array) {
 //        console.log(config);
         var val = data.height;
+        console.log("val: " + val);
         elements++;
         if (config.min === 0) {
             config.min = val;
