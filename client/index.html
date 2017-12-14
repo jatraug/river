@@ -11,19 +11,35 @@
     </canvas>
 
     <!-- <form action="http://localhost:8080/riverData" method="get"> -->
-    <form action="/riverData" method="get"
->
+    <!-- <form action="/riverData" method="get"> -->
+
 
 <!-- <script src="river.js"></script> -->
 
 <script>
+  
+  var trythis = function() {
+  var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=12155500&period=P1D&format=json'
+  var request = new Request(url, {method: 'get'});
+  console.log(url);
+  console.log(request.method);
+  console.log(request.mode);
+  console.log("yup");
+//  fetch('riverdata').then(function(response) {
+  fetch(request).then(function(response) {
+  response.text().then(function(text) {
+  console.log(response);
+  console.log(text);
+  });
+  });
+  };
 
-};
+
 
 </script>
 <!-- Insert Here -->
 <!-- <script src="./jquery.js"></script> -->
- <button formaction='/riverdata', formmethod='get'>Get Snohomish River Data</button> 
+ <button type='submit', onclick=trythis()>Get Snohomish River Data</button> 
 
 </body></html>
 
