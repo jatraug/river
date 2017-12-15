@@ -1,0 +1,13 @@
+* River todo
+** Complete refactor
+** add more rivers and locations
+Site data in ~/work/River/sites
+- skagit
+- pilchuk
+- more Snohomish locations
+- snoqualmie
+- skykomish
+- stillaguamish
+*** make list of rivers (file){ name: "", sitecode: ""]
+*** show river name and time
+** historical looks at rivers esp. flood times
