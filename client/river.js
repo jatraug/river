@@ -32,11 +32,12 @@ var handleData = function(dataArr) {
     dataArr.forEach( function (element, index, array) {
         //        data += ("<li>TimeDate: " + element.date +  "  -  " + "Feet: " + element.height + "</li>\r\n");
         data += "{time: \"" + element.date + "\", height: " + element.height + " },";
-        darr.push("{time: \"" + element.date + "\", height: " + element.height + " },");
-        console.log(element.date + "***" + element.height);
+//        darr.push("{time: \"" + element.date + "\", height: " + element.height + " },");
+        darr.push({'time': element.date,'height': parseFloat(element.height) });
+//        console.log(element.date + "***" + element.height);
     });
     data += ']';
-    console.log(darr[5]);
+//    console.log(darr[5]);
     return darr;
 };
 

@@ -30,20 +30,12 @@ var context = elem.getContext('2d');
 
 </script>
 
-    <canvas id="myCanvas" width="800" height="500">
-         Your browser does not support Canvas
-    </canvas>
+ 
 
     <!-- <form action="http://localhost:8080/riverData" method="get"> -->
     <!-- <form action="/riverData" method="get"> -->
-<script>
 
-<!-- <script src="river.js"></script> -->
-  function load_graph() {
-     document.getElementById("displayed").innerHTML='<object type="text/html" data="client/graph.html" ></object>';
-}
-</script> 
-<script>
+    <script>
   var trythis = function() {
   var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=12155500&period=P1D&format=json'
   var request = new Request(url, {method: 'get'});

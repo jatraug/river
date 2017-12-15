@@ -23,7 +23,7 @@ Graph.prototype.Xscale = function() {
 
 Graph.prototype.Yscale = function() {
     console.log("returning Yscale = " + this.config.Yscale);
-    console.log("Height " + this.config.height + " Max " + this.config.max + " Min " + this.config.min);
+//    console.log("Height " + this.config.height + " Max " + this.config.max + " Min " + this.config.min);
     return this.config.Yscale;
 };
 
@@ -39,9 +39,9 @@ Graph.prototype.setMinMax =  function(numarr) {
     var config = this.config;
     var elements =0;
     numarr.forEach(function (data, index, array) {
-//        console.log(config);
+//        console.log("SMM" + data);
         var val = data.height;
-        console.log("val: " + val);
+//        console.log("val: " + val);
         elements++;
         if (config.min === 0) {
             config.min = val;
