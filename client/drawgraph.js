@@ -1,5 +1,5 @@
 
-var drawGraph = function() {
+var drawGraph = function(rdata) {
     var lineWidth   = 1;
     var baseline = 400;
     context.beginPath();

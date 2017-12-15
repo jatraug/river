@@ -6,18 +6,44 @@
   </head>
 
   <body>
+
+    <canvas id="myCanvas" width="1000" height="500">
+         Your browser does not support Canvas
+    </canvas>
+    
+    <script src="client/river.js"></script>
+    <script src="client/graph.js"></script>
+    <script src="client/drawgraph.js"></script>
+
+    <script>
+
+    var elem = document.getElementById('myCanvas');
+
+// Check the element is in the DOM and the browser supports canvas
+if(elem.getContext) {
+// Initaliase a 2-dimensional drawing context
+var context = elem.getContext('2d');
+//Canvas commands go here
+}
+
+
+
+</script>
+
     <canvas id="myCanvas" width="800" height="500">
          Your browser does not support Canvas
     </canvas>
 
     <!-- <form action="http://localhost:8080/riverData" method="get"> -->
     <!-- <form action="/riverData" method="get"> -->
-
+<script>
 
 <!-- <script src="river.js"></script> -->
-
+  function load_graph() {
+     document.getElementById("displayed").innerHTML='<object type="text/html" data="client/graph.html" ></object>';
+}
+</script> 
 <script>
-  
   var trythis = function() {
   var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=12155500&period=P1D&format=json'
   var request = new Request(url, {method: 'get'});
@@ -30,13 +56,14 @@
   response.text().then(function(text) {
   console.log(response);
   console.log(text);
+  var rdata = doJson(text);
+  drawGraph(rdata);
   });
   });
   };
-
-
-
+  
 </script>
+
 <!-- Insert Here -->
 <!-- <script src="./jquery.js"></script> -->
  <button type='submit', onclick=trythis()>Get Snohomish River Data</button> 
