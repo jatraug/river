@@ -4,7 +4,7 @@ var drawGraph = function(rdata) {
     var baseline = 400;
     context.beginPath();
         context.lineWidth = lineWidth;
-    var config = {height: 500, width: 1000};
+    var config = {height: 500, width: 800};
     var graph = new Graph(config);
     graph.setMinMax(rdata);
     //do legend:
