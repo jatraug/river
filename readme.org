@@ -11,3 +11,11 @@ Site data in ~/work/River/sites
 *** make list of rivers (file){ name: "", sitecode: ""]
 *** show river name and time
 ** historical looks at rivers esp. flood times
+https://pubs.usgs.gov/of/1993/0631/report.pdf - floods
+https://en.wikipedia.org/wiki/ISO_8601#Durations - time durations
+* waterservices formats
+** Date
+https://nwis.waterservices.usgs.gov/nwis/iv/?sites=12155500&startDT=2017-11-22&endDT=2017-11-22&format=json
+Or: period=P1D
+** Site name
+timeSeries[index].sourceInfo.siteName

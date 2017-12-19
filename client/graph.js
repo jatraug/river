@@ -1,5 +1,10 @@
 
 
+var clog = function(stuff) {
+    //console.log(stuff);
+}; 
+
+
 var Graph = function ( config) {
     this.config = config;
     this.config.width = config.width;
@@ -22,8 +27,8 @@ Graph.prototype.Xscale = function() {
 
 
 Graph.prototype.Yscale = function() {
-    console.log("returning Yscale = " + this.config.Yscale);
-//    console.log("Height " + this.config.height + " Max " + this.config.max + " Min " + this.config.min);
+    clog("returning Yscale = " + this.config.Yscale);
+//    clog("Height " + this.config.height + " Max " + this.config.max + " Min " + this.config.min);
     return this.config.Yscale;
 };
 
@@ -39,9 +44,9 @@ Graph.prototype.setMinMax =  function(numarr) {
     var config = this.config;
     var elements =0;
     numarr.forEach(function (data, index, array) {
-//        console.log("SMM" + data);
+//        clog("SMM" + data);
         var val = data.height;
-//        console.log("val: " + val);
+//        clog("val: " + val);
         elements++;
         if (config.min === 0) {
             config.min = val;

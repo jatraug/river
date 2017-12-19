@@ -1,5 +1,5 @@
 
-JSFILES = $(wildcard */*.js)
+JSFILES = client/*.js
 
 default:
 	echo "Targets: run lint"

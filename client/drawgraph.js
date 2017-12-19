@@ -1,4 +1,12 @@
 
+
+
+var clog = function(stuff) {
+    //console.log(stuff);
+}; 
+
+
+
 var drawGraph = function(rdata) {
     var lineWidth   = 1;
     var baseline = 400;
