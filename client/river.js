@@ -18,6 +18,7 @@ var clearScreen = function() {
     context.clearRect(0,0, 1000, 500);
 };
 
+try{
 var trythis = function() {
 
 
@@ -36,9 +37,12 @@ var trythis = function() {
         });
     });
 };
+} catch(e) {
+    console.log(e);
+    alert(e);
+}
 
-
-
+try {
 var doJson = function(str) {
     var riverDataArr = [];
     var riverData = JSON.parse(str);
@@ -54,6 +58,10 @@ var doJson = function(str) {
     return (handleData (riverDataArr));
 
 }; // end of call
+} catch(e) {
+    console.log(e);
+    alert(e);
+}
 
 
 var handleData = function(dataArr) {
@@ -68,7 +76,7 @@ var handleData = function(dataArr) {
 
     return darr;
 };
-
+try{
 // Determine which timeseies
 var determineWhichTimeseries = function(arr){
     var ind = undefined;
@@ -79,12 +87,21 @@ var determineWhichTimeseries = function(arr){
         }
     });
     //    assert(ind);
-    if (!ind) {
+    if (ind === undefined) {
         console.log('Nope!');
+        throw('No timeseries data');
     }
     return ind;
 };
+} catch(e) {
+    console.log(e);
+    alert(e);
+}
 
+
+
+
+    
 var parseDateAndTime = function(dateTime){
 //  2015-12-08T02:30:00.000-08:00
 // put date and time in separate entities 
