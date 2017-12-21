@@ -2,9 +2,6 @@
 
 // river.js - made from old server/river.js
 
-var clog = function(stuff) {
-    console.log(stuff);
-}; 
 
 var riverArr = [
     {'siteIndex' : '12170300', 'siteName': 'STILLAGUAMISH RIVER NEAR STANWOOD, WA'},
@@ -28,17 +25,12 @@ var trythis = function() {
     console.log(riverIndex);
     var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + riverArr[riverIndex].siteIndex + '&period=P1D&format=json';
     var request = new Request(url, {method: 'get'});
-    clog(url);
-    clog(request.method);
-    clog(request.mode);
     clog("yup");
     clearScreen();
     //  fetch('riverdata').then(function(response) {
 
     fetch(request).then(function(response) {
         response.text().then(function(text) {
-            clog(response);
-            clog(text);
             var rdata = doJson(text);
             drawGraph(rdata);
         });
@@ -58,20 +50,20 @@ var doJson = function(str) {
         var dTime = parseDateAndTime(element.dateTime);
         riverDataArr.push ({date: dTime, height: element.value});
     });
-    clog("Call handleData");
+
     return (handleData (riverDataArr));
 
 }; // end of call
 
 
 var handleData = function(dataArr) {
-    clog ("handleData");
+
 
     var darr = [];
     dataArr.forEach( function (element, index, array) {
 
         darr.push({'time': element.date,'height': parseFloat(element.height) });
-//        clog(element.date + "***" + element.height);
+
     });
 
     return darr;
@@ -81,11 +73,15 @@ var handleData = function(dataArr) {
 var determineWhichTimeseries = function(arr){
     var ind = undefined;
     arr.forEach ( function (element, index, array) {
-        clog("varDesc: " + element.variable.variableDescription);
+        console.log(element.variable.variableDescription);
         if(element.variable.variableDescription === "Gage height, feet") {
             ind = index;
         }
     });
+    //    assert(ind);
+    if (!ind) {
+        console.log('Nope!');
+    }
     return ind;
 };
 

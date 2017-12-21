@@ -10,6 +10,7 @@ Site data in ~/work/River/sites
 - stillaguamish
 *** make list of rivers (file){ name: "", sitecode: ""]
 *** show river name and time
+*** erase graph before a new river is added
 ** historical looks at rivers esp. flood times
 https://pubs.usgs.gov/of/1993/0631/report.pdf - floods
 https://en.wikipedia.org/wiki/ISO_8601#Durations - time durations

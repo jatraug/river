@@ -61,6 +61,17 @@ app.get('/client/graph.js', function(request, response) {
 //    response.end(); 
 });
 
+app.get('/client/tools.js', function(request, response) {
+    console.log("D");
+ var fs = require('fs');	
+
+
+      var ind = fs.readFileSync('client/tools.js');
+      var buf= new Buffer(ind, 'utf8');
+      response.send(buf.toString());
+    response.end();
+});
+
 
 app.get('/client/river.js', function(request, response) {
     console.log("RJS");

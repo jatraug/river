@@ -1,10 +1,6 @@
 
 
 
-var clog = function(stuff) {
-    //console.log(stuff);
-}; 
-
 
 
 var drawGraph = function(rdata) {

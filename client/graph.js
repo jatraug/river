@@ -1,8 +1,5 @@
 
 
-var clog = function(stuff) {
-    //console.log(stuff);
-}; 
 
 
 var Graph = function ( config) {
