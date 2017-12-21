@@ -17,7 +17,9 @@ var riverArr = [
 
 ];
 
-
+var clearScreen = function() {
+    context.clearRect(0,0, 1000, 500);
+};
 
 var trythis = function() {
 
@@ -30,7 +32,7 @@ var trythis = function() {
     clog(request.method);
     clog(request.mode);
     clog("yup");
-
+    clearScreen();
     //  fetch('riverdata').then(function(response) {
 
     fetch(request).then(function(response) {
