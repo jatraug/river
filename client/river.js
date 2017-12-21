@@ -3,7 +3,7 @@
 // river.js - made from old server/river.js
 
 var clog = function(stuff) {
-    //console.log(stuff);
+    console.log(stuff);
 }; 
 
 var riverArr = [
@@ -13,20 +13,26 @@ var riverArr = [
     {'siteIndex' : '12200500', 'siteName': 'SKAGIT RIVER NEAR MOUNT VERNON, WA'},
     {'siteIndex' : '12155300', 'siteName': 'PILCHUCK RIVER NEAR SNOHOMISH, WA'},
     {'siteIndex' : '12155500', 'siteName': 'SNOHOMISH RIVER AT SNOHOMISH, WA'},
-    {'siteIndex' : '12194000', 'siteName': ' SKAGIT RIVER NEAR CONCRETE, WA'}
+    {'siteIndex' : '12194000', 'siteName': 'SKAGIT RIVER NEAR CONCRETE, WA'}
 
 ];
 
 
 
 var trythis = function() {
-    var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=12155500&period=P1D&format=json';
+
+
+    var riverIndex = document.getElementById('riverlist').selectedIndex;
+    console.log(riverIndex);
+    var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + riverArr[riverIndex].siteIndex + '&period=P1D&format=json';
     var request = new Request(url, {method: 'get'});
     clog(url);
     clog(request.method);
     clog(request.mode);
     clog("yup");
+
     //  fetch('riverdata').then(function(response) {
+
     fetch(request).then(function(response) {
         response.text().then(function(text) {
             clog(response);

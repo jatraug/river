@@ -1,56 +1,58 @@
 <!DOCTYPE html
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>Snohomish River Data</title>
-  </head>
+          <html lang="en"><head>
+              <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+              <meta charset="utf-8">
+              <title>River Height Data</title>
+            </head>
 
-  <body>
+            <body>
 
-    <canvas id="myCanvas" width="1000" height="500">
-         Your browser does not support Canvas
-    </canvas>
-    
-    <script src="client/river.js"></script>
-    <script src="client/graph.js"></script>
-    <script src="client/drawgraph.js"></script>
+              <canvas id="myCanvas" width="1000" height="500">
+                Your browser does not support Canvas
+              </canvas>
+              
+              <script src="client/river.js"></script>
+              <script src="client/graph.js"></script>
+              <script src="client/drawgraph.js"></script>
 
-    <script>
+              <script>
+                
+                var elem = document.getElementById('myCanvas');
 
+                // Check the element is in the DOM and the browser supports canvas
+                if(elem.getContext) {
+                // Initaliase a 2-dimensional drawing context
+                var context = elem.getContext('2d');
+                //Canvas commands go here
+                }
 
-      
-    var elem = document.getElementById('myCanvas');
+              </script>
 
-// Check the element is in the DOM and the browser supports canvas
-if(elem.getContext) {
-// Initaliase a 2-dimensional drawing context
-var context = elem.getContext('2d');
-//Canvas commands go here
-}
-
-
-
-</script>
+              <script>
 
 
-    <!-- <form action="http://localhost:8080/riverData" method="get"> -->
-    <!-- <form action="/riverData" method="get"> -->
-
-    <script>
-
-
-      var clog = function(stuff) {
-    //console.log(stuff);
-      }; 
+                var clog = function(stuff) {
+                //console.log(stuff);
+                }; 
 
 
-  
-</script>
+                
+              </script>
 
-<!-- Insert Here -->
-<!-- <script src="./jquery.js"></script> -->
- <button type='submit', onclick=trythis()>Get Snohomish River Data</button> 
+              <!-- Insert Here -->
+              <!-- <script src="./jquery.js"></script> -->
+              <button type='submit', onclick=trythis()>Get River Data</button> 
+<select id='riverlist' label='Choose a river'>
+                
+  <option value='STILLAGUAMISH RIVER NEAR STANWOOD, WA'>STILLAGUAMISH
+  RIVER NEAR STANWOOD, WA</option>
+  <option value='SF STILLAGUAMISH RIVER NEAR GRANITE FALLS, WA'>SF STILLAGUAMISH RIVER NEAR GRANITE FALLS, WA</option>
+  <option value='SKAGIT RIVER ABOVE ALMA CREEK NEAR MARBLEMOUNT, WA'>SKAGIT RIVER ABOVE ALMA CREEK NEAR MARBLEMOUNT, WA</option>
+  <option value='SKAGIT RIVER NEAR MOUNT VERNON, WA'>SKAGIT RIVER NEAR MOUNT VERNON, WA</option>
+  <option value='PILCHUCK RIVER NEAR SNOHOMISH, WA'>PILCHUCK RIVER NEAR SNOHOMISH, WA</option>
+  <option value='SNOHOMISH RIVER AT SNOHOMISH, WA'>SNOHOMISH RIVER AT
+    SNOHOMISH, WA</option>
+  <option value='SKAGIT RIVER NEAR CONCRETE, WA'>SKAGIT RIVER NEAR CONCRETE, WA</option>
+</select>
 
 </body></html>
-
-
