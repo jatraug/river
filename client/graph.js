@@ -59,6 +59,10 @@ Graph.prototype.setMinMax =  function(numarr) {
                 config.max = val;
             }
         }
+        // keep all from happening in the ame place:
+        if(config.min === config.max) {
+            config.max +=1;
+        }
     });
     this.config = config;
     this.config.elements = elements;
