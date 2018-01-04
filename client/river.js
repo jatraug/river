@@ -6,7 +6,7 @@
 var riverArr = [
     {'siteIndex' : '12170300', 'siteName': 'STILLAGUAMISH RIVER NEAR STANWOOD, WA'},
     {'siteIndex' : '12161000', 'siteName': 'SF STILLAGUAMISH RIVER NEAR GRANITE FALLS, WA'},
-    {'siteIndex' : '12179000', 'siteName': 'SKAGIT RIVER ABOVE ALMA CREEK NEAR MARBLEMOUNT, WA'},
+    {'siteIndex' : '12178000', 'siteName': 'SKAGIT RIVER AT NEWHALEM, WA'},
     {'siteIndex' : '12200500', 'siteName': 'SKAGIT RIVER NEAR MOUNT VERNON, WA'},
     {'siteIndex' : '12155300', 'siteName': 'PILCHUCK RIVER NEAR SNOHOMISH, WA'},
     {'siteIndex' : '12155500', 'siteName': 'SNOHOMISH RIVER AT SNOHOMISH, WA'},
@@ -18,7 +18,7 @@ var clearScreen = function() {
     context.clearRect(0,0, 1000, 500);
 };
 
-try{
+
 var trythis = function() {
 
 
@@ -37,12 +37,9 @@ var trythis = function() {
         });
     });
 };
-} catch(e) {
-    console.log(e);
-    alert(e);
-}
 
-try {
+
+
 var doJson = function(str) {
     var riverDataArr = [];
     var riverData = JSON.parse(str);
@@ -58,10 +55,7 @@ var doJson = function(str) {
     return (handleData (riverDataArr));
 
 }; // end of call
-} catch(e) {
-    console.log(e);
-    alert(e);
-}
+
 
 
 var handleData = function(dataArr) {
@@ -89,7 +83,7 @@ var determineWhichTimeseries = function(arr){
     //    assert(ind);
     if (ind === undefined) {
         console.log('Nope!');
-        throw('No timeseries data');
+        throw('No timeseries data hoo');
     }
     return ind;
 };
