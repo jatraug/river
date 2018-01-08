@@ -1,5 +1,8 @@
 
 
+
+log.clogOff();
+
 // river.js - made from old server/river.js
 
 
@@ -17,7 +20,7 @@ var buttonClick = function() {
 //    var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + riverArr[riverIndex].siteIndex + '&period=P1D&format=json';
     var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + mkgetSiteFromIndex()(riverIndex) + '&period=P1D&format=json';
     var request = new Request(url, {method: 'get'});
-    clog("yup");
+    log.clog("yup");
     clearScreen();
     //  fetch('riverdata').then(function(response) {
 
@@ -36,7 +39,7 @@ var doJson = function(str) {
     var riverData = JSON.parse(str);
     // Put needed river data in array:
     var ind = determineWhichTimeseries(riverData.value.timeSeries);
-    clog("ind = " + ind);
+    log.clog("ind = " + ind);
     riverData.value.timeSeries[ind].values[0].value.forEach (function (element, index, array) {
 
         var dTime = parseDateAndTime(element.dateTime);
