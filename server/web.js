@@ -88,6 +88,21 @@ app.get('/client/river.js', function(request, response) {
 //    response.sendFile("/client/graph.js", { root: __dirname });
 //    response.end(); 
 });
+app.get('/client/riversites.js', function(request, response) {
+    console.log("RJS");
+ var fs = require('fs');	
+
+
+      var ind = fs.readFileSync('client/riversites.js');
+    console.log("E");
+      var buf= new Buffer(ind, 'utf8');
+    console.log("F");
+      response.send(buf.toString());
+    console.log("G");
+    response.end();
+//    response.sendFile("/client/graph.js", { root: __dirname });
+//    response.end(); 
+});
 
 app.get('/client/drawgraph.js', function(request, response) {
     console.log("D");

@@ -3,28 +3,19 @@
 // river.js - made from old server/river.js
 
 
-var riverArr = [
-    {'siteIndex' : '12170300', 'siteName': 'STILLAGUAMISH RIVER NEAR STANWOOD, WA'},
-    {'siteIndex' : '12161000', 'siteName': 'SF STILLAGUAMISH RIVER NEAR GRANITE FALLS, WA'},
-    {'siteIndex' : '12178000', 'siteName': 'SKAGIT RIVER AT NEWHALEM, WA'},
-    {'siteIndex' : '12200500', 'siteName': 'SKAGIT RIVER NEAR MOUNT VERNON, WA'},
-    {'siteIndex' : '12155300', 'siteName': 'PILCHUCK RIVER NEAR SNOHOMISH, WA'},
-    {'siteIndex' : '12155500', 'siteName': 'SNOHOMISH RIVER AT SNOHOMISH, WA'},
-    {'siteIndex' : '12194000', 'siteName': 'SKAGIT RIVER NEAR CONCRETE, WA'}
-
-];
 
 var clearScreen = function() {
     context.clearRect(0,0, 1000, 500);
 };
 
-
-var trythis = function() {
+// react to button click
+var buttonClick = function() {
 
 
     var riverIndex = document.getElementById('riverlist').selectedIndex;
     console.log(riverIndex);
-    var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + riverArr[riverIndex].siteIndex + '&period=P1D&format=json';
+//    var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + riverArr[riverIndex].siteIndex + '&period=P1D&format=json';
+    var url = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + mkgetSiteFromIndex()(riverIndex) + '&period=P1D&format=json';
     var request = new Request(url, {method: 'get'});
     clog("yup");
     clearScreen();
