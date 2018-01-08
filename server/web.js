@@ -16,34 +16,6 @@ app.get('/', function(request, response) {
     //  response.send('Hello World Two!');
 });
 
-app.get('/riverData', function(request, response) {
-//    console.log("Request: " + "HaHHa" );
-    var rData = river.getRiverData(response);
-    // above here works!
-     var fs = require('fs');	
-     var ind = fs.readFileSync('client/graph.html');
-     var buf= new Buffer(ind, 'utf8');
-     response.send(buf.toString());
-    response.end();
-});
-
-app.get('/data/rdata.js', function(request, response) {
-    var rData = river.getRiverData(response);
-  //  response.sendFile("../data/rdata.js", {
-  //  root: __dirname });
-///home/jimt/work/heroku/riverHeroku
-      var fs = require('fs');	
-
-
-      var ind = fs.readFileSync('data/rdata.js');
-    console.log("A");
-      var buf= new Buffer(ind, 'utf8');
-    console.log("B");
-      response.send(buf.toString());
-    console.log("C");
-    response.end();
-
-});
 
 app.get('/client/graph.js', function(request, response) {
     console.log("D");
