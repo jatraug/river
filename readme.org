@@ -1,3 +1,9 @@
+* River - display water height for several Washington rivers.
+Display covers the previous 24 hours.
+On Heroku at: http://protected-dawn-6882.herokuapp.com
+All data is from:
+https://waterservices.usgs.gov
+
 * River todo
 ** Complete refactor
 ** add more rivers and locations
