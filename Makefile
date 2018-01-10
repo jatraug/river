@@ -1,4 +1,5 @@
 
+
 JSFILES = client/*.js
 
 default:
@@ -15,3 +16,4 @@ local:
 ## node install -g eslint
 eslint :
 	eslint $(JSFILES)
+
